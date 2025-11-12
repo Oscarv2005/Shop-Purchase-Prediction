@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Prediction Result</h1>
+  </header>
+
+  <main>
+    <p><strong>Predicted Revenue (1 = Yes, 0 = No):</strong> {{ prediction }}</p>
+    <p><strong>Probability of Purchase:</strong> {{ "%.2f"|format(probability*100) }}%</p>
+    <a href="/"><button>Back</button></a>
+  </main>
+</body>
+</html>

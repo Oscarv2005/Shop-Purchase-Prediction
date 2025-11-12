@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop Intention Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Shop Intention Prediction</h1>
+    <p>Enter details below to predict if a visitor will buy</p>
+  </header>
+
+  <main>
+    <form action="/predict" method="post">
+      <label>Administrative</label>
+      <input name="Administrative" type="number" step="1" value="0" required>
+      <label>Administrative Duration</label>
+      <input name="Administrative_Duration" type="number" step="any" value="0" required>
+      <label>Informational</label>
+      <input name="Informational" type="number" step="1" value="0" required>
+      <label>Informational Duration</label>
+      <input name="Informational_Duration" type="number" step="any" value="0" required>
+      <label>Product Related</label>
+      <input name="ProductRelated" type="number" step="1" value="0" required>
+      <label>Product Duration</label>
+      <input name="ProductRelated_Duration" type="number" step="any" value="0" required>
+      <label>Bounce Rates</label>
+      <input name="BounceRates" type="number" step="any" value="0" required>
+      <label>Exit Rates</label>
+      <input name="ExitRates" type="number" step="any" value="0" required>
+      <label>Page Values</label>
+      <input name="PageValues" type="number" step="any" value="0" required>
+      <label>Special Day</label>
+      <input name="SpecialDay" type="number" step="any" value="0" required>
+      <label>Month</label>
+      <input name="Month" list="months" placeholder="May" required>
+      <datalist id="months">
+        <option value="Jan"><option value="Feb"><option value="Mar"><option value="Apr">
+        <option value="May"><option value="Jun"><option value="Jul"><option value="Aug">
+        <option value="Sep"><option value="Oct"><option value="Nov"><option value="Dec">
+      </datalist>
+      <label>Visitor Type</label>
+      <input name="VisitorType" list="vtypes" placeholder="Returning_Visitor" required>
+      <datalist id="vtypes">
+        <option value="Returning_Visitor"><option value="New_Visitor"><option value="Other">
+      </datalist>
+      <label>Weekend</label>
+      <input name="Weekend" type="checkbox" value="1">
+      <button type="submit">Predict</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Or send JSON to <code>/predict</code> for API access.</p>
+  </footer>
+</body>
+</html>
